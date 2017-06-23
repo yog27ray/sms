@@ -1,0 +1,98 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        maven { url 'https://maven.fabric.io/public' }
+    }
+
+    dependencies {
+        classpath 'io.fabric.tools:gradle:1.22.2'
+    }
+}
+
+apply plugin: 'com.android.application'
+apply plugin: 'io.fabric'
+
+repositories {
+    maven { url 'https://maven.fabric.io/public' }
+}
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.3"
+    defaultConfig {
+        applicationId "com.yog27ray.contactsync"
+        minSdkVersion 15
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    // google repository
+    compile 'com.android.support:appcompat-v7:25.3.1'
+    compile('com.android.support:design:25.3.1') {
+        exclude group: 'com.android.support'
+    }
+    compile('com.android.support:cardview-v7:25.3.1') {
+        exclude group: 'com.android.support'
+    }
+    compile('com.android.support:recyclerview-v7:25.3.1') {
+        exclude group: 'com.android.support'
+    }
+    compile('com.android.support.constraint:constraint-layout:1.0.2') {
+        exclude group: 'com.android.support'
+    }
+    
+    /**
+     * initial repository
+     **/
+    // butter knife
+    compile('com.jakewharton:butterknife:8.5.1') {
+        exclude group: 'com.google.guava'
+    }
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
+    // picasso
+    compile('com.squareup.picasso:picasso:2.5.2') {
+        exclude group: 'com.google.guava'
+    }
+    //Timber Log
+    compile('com.jakewharton.timber:timber:4.5.1') {
+        exclude group: 'com.google.guava'
+    }
+    // dagger
+    compile('com.google.dagger:dagger:2.10') {
+        exclude group: 'com.google.guava'
+    }
+    annotationProcessor 'com.google.dagger:dagger-compiler:2.10'
+    //Gson
+    compile('com.google.code.gson:gson:2.8.0') {
+        exclude group: 'com.google.guava'
+    }
+    //Retrofit
+    compile('com.squareup.retrofit2:retrofit:2.2.0') {
+        exclude group: 'com.google.guava'
+    }
+    compile('com.squareup.retrofit:converter-gson:2.0.0-beta2') {
+        exclude group: 'com.google.guava'
+    }
+    //Guava
+    compile 'com.google.guava:guava:20.0'
+    // Common Utils
+    compile 'commons-io:commons-io:2.5'
+    // Promise
+    compile 'org.jdeferred:jdeferred-android-aar:1.2.4'
+    // crashlytics
+    compile('com.crashlytics.sdk.android:crashlytics:2.6.8@aar') {
+        transitive = true;
+    }
+    // Utility classes
+    compile 'org.apache.commons:commons-lang3:3.5'
+}
