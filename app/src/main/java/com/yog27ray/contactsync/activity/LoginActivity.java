@@ -6,7 +6,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatEditText;
 
 import com.yog27ray.contactsync.App;
-import com.yog27ray.contactsync.MainActivity;
 import com.yog27ray.contactsync.R;
 import com.yog27ray.contactsync.common.JsonConverter;
 import com.yog27ray.contactsync.common.SPUtility;
@@ -40,7 +39,7 @@ public class LoginActivity extends AppCompatActivity {
     App.getInternetComponent().inject(this);
     ButterKnife.bind(this);
     if (spUtility.isUserLoggedIn()) {
-      startActivity(new Intent(this, MainActivity.class));
+      startActivity(new Intent(this, GroupListActivity.class));
       finish();
     }
   }
@@ -58,7 +57,7 @@ public class LoginActivity extends AppCompatActivity {
                   @Override
                   public void onDone(UserModel user) {
                     Timber.e(new JsonConverter().toJson(user));
-                    startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                    startActivity(new Intent(LoginActivity.this, GroupListActivity.class));
                     finish();
                   }
                 });

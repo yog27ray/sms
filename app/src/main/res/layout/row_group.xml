@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="clickListener"
+            type="android.view.View.OnClickListener"/>
+
+        <variable
+            name="holder"
+            type="com.yog27ray.contactsync.holder.GroupHolder"/>
+
+        <variable
+            name="item"
+            type="com.yog27ray.contactsync.model.GroupModel"/>
+    </data>
+
+    <android.support.v7.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="@{clickListener}"
+        android:orientation="horizontal"
+        android:tag="@{holder}">
+
+        <android.support.v7.widget.AppCompatCheckBox
+            android:id="@+id/selected"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="@={item.selected}"/>
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/dp10"
+            android:text="@{item.name}"/>
+
+    </android.support.v7.widget.LinearLayoutCompat>
+</layout>
