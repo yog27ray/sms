@@ -6,7 +6,7 @@ public class UserModel {
   public int group_id;
   public String email_id;
   public int admin_flag = 0;
-  public int admin;
+  public Integer admin;
 
   public UserModel() {
   }

@@ -7,7 +7,11 @@ import com.yog27ray.contactsync.common.SPUtility;
 import com.yog27ray.contactsync.common.constant.EndPoints;
 import com.yog27ray.contactsync.model.AccessToken;
 import com.yog27ray.contactsync.model.ContactModel;
+import com.yog27ray.contactsync.model.GroupModel;
 import com.yog27ray.contactsync.model.RequestBodyModel;
+import com.yog27ray.contactsync.model.RouteModel;
+import com.yog27ray.contactsync.model.SenderIdModel;
+import com.yog27ray.contactsync.model.SmsModel;
 import com.yog27ray.contactsync.model.UserModel;
 
 import org.jdeferred.DoneCallback;
@@ -153,11 +157,13 @@ public class ServerConnection {
     return deferred;
   }
 
-  public DeferredObject<Boolean, Exception, Object> sendContacts(List<ContactModel> contacts) {
+  public DeferredObject<Boolean, Exception, Object> sendContacts(String groupName,
+                                                                 List<ContactModel> contacts) {
     final DeferredObject<Boolean, Exception, Object> deferred = new DeferredObject<>();
     ApiService service = apiConnector.createService(ApiService.class, this);
     RequestBodyModel body = new RequestBodyModel();
     body.contacts = contacts;
+    body.name = groupName;
     Call<ResponseBody> request = service.syncContact(body);
     request.enqueue(new Callback<ResponseBody>() {
       @Override
@@ -172,5 +178,98 @@ public class ServerConnection {
       }
     });
     return deferred;
+  }
+
+  public DeferredObject<List<GroupModel>, Exception, Object> fetchGroups() {
+    final DeferredObject<List<GroupModel>, Exception, Object> deferred = new DeferredObject<>();
+    ApiService service = apiConnector.createService(ApiService.class, this);
+    Call<List<GroupModel>> request = service.fetchGroups();
+    request.enqueue(new Callback<List<GroupModel>>() {
+      @Override
+      public void onResponse(Response<List<GroupModel>> response, Retrofit retrofit) {
+        if (response.isSuccess()) {
+          deferred.resolve(response.body());
+          return;
+        }
+        deferred.reject(new Exception());
+      }
+
+      @Override
+      public void onFailure(Throwable t) {
+        t.printStackTrace(System.err);
+        deferred.reject(new Exception(t));
+      }
+    });
+    return deferred;
+  }
+
+  public Promise<List<SenderIdModel>, Exception, Object> fetchSenderIds(String fl, String status) {
+    final DeferredObject<List<SenderIdModel>, Exception, Object> deferred = new DeferredObject<>();
+    ApiService service = apiConnector.createService(ApiService.class, this);
+    Call<List<SenderIdModel>> request = service.fetchSenderIds(fl, status);
+    request.enqueue(new Callback<List<SenderIdModel>>() {
+      @Override
+      public void onResponse(Response<List<SenderIdModel>> response, Retrofit retrofit) {
+        if (response.isSuccess()) {
+          deferred.resolve(response.body());
+          return;
+        }
+        deferred.reject(new Exception());
+      }
+
+      @Override
+      public void onFailure(Throwable t) {
+        t.printStackTrace(System.err);
+        deferred.reject(new Exception(t));
+      }
+    });
+    return deferred.promise();
+  }
+
+  public Promise<List<RouteModel>, Exception, Object> fetchRoutes() {
+    final DeferredObject<List<RouteModel>, Exception, Object> deferred = new DeferredObject<>();
+    ApiService service = apiConnector.createService(ApiService.class, this);
+    Call<List<RouteModel>> request = service.fetchRoutes();
+    request.enqueue(new Callback<List<RouteModel>>() {
+      @Override
+      public void onResponse(Response<List<RouteModel>> response, Retrofit retrofit) {
+        if (response.isSuccess()) {
+          deferred.resolve(response.body());
+          return;
+        }
+        Timber.e("Error");
+        deferred.reject(new Exception());
+      }
+
+      @Override
+      public void onFailure(Throwable t) {
+        t.printStackTrace(System.err);
+        deferred.reject(new Exception(t));
+      }
+    });
+    return deferred.promise();
+  }
+
+  public Promise<Boolean, Exception, Object> sendSms(SmsModel body) {
+    final DeferredObject<Boolean, Exception, Object> deferred = new DeferredObject<>();
+    ApiService service = apiConnector.createService(ApiService.class, this);
+    Call<ResponseBody> request = service.sendSms(body);
+    request.enqueue(new Callback<ResponseBody>() {
+      @Override
+      public void onResponse(Response<ResponseBody> response, Retrofit retrofit) {
+        if (response.isSuccess()) {
+          deferred.resolve(true);
+          return;
+        }
+        deferred.reject(new Exception());
+      }
+
+      @Override
+      public void onFailure(Throwable t) {
+        t.printStackTrace(System.err);
+        deferred.reject(new Exception(t));
+      }
+    });
+    return deferred.promise();
   }
 }

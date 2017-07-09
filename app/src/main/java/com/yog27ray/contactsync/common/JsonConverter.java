@@ -29,7 +29,7 @@ public class JsonConverter {
 		return gson.fromJson(s, classOfT);
 	}
 
-	<T> T fromJson(String json, Type typeOfT) {
+	public <T> T fromJson(String json, Type typeOfT) {
 		return gson.fromJson(json, typeOfT);
 	}
 

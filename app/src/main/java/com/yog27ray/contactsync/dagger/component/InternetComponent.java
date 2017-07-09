@@ -1,8 +1,9 @@
 package com.yog27ray.contactsync.dagger.component;
 
 
-import com.yog27ray.contactsync.MainActivity;
+import com.yog27ray.contactsync.activity.GroupListActivity;
 import com.yog27ray.contactsync.activity.LoginActivity;
+import com.yog27ray.contactsync.activity.SendSmsActivity;
 import com.yog27ray.contactsync.connectivity.interceptor.AuthorizationInterceptor;
 import com.yog27ray.contactsync.dagger.module.InternetModule;
 import com.yog27ray.contactsync.dagger.module.StorageModule;
@@ -22,5 +23,7 @@ public interface InternetComponent {
 
   void inject(LoginActivity activity);
 
-  void inject(MainActivity activity);
+  void inject(GroupListActivity activity);
+
+  void inject(SendSmsActivity activity);
 }
