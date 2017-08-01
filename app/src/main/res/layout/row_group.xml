@@ -10,11 +10,11 @@
 
         <variable
             name="holder"
-            type="com.yog27ray.contactsync.holder.GroupHolder"/>
+            type="com.msgque.pulse.holder.GroupHolder"/>
 
         <variable
             name="item"
-            type="com.yog27ray.contactsync.model.GroupModel"/>
+            type="com.msgque.pulse.model.GroupModel"/>
     </data>
 
     <android.support.v7.widget.LinearLayoutCompat

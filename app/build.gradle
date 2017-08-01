@@ -19,7 +19,7 @@ android {
     compileSdkVersion 25
     buildToolsVersion "25.0.3"
     defaultConfig {
-        applicationId "com.yog27ray.contactsync"
+        applicationId "com.msgque.pulse"
         minSdkVersion 15
         targetSdkVersion 25
         versionCode 1
@@ -28,7 +28,7 @@ android {
     }
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
@@ -58,36 +58,20 @@ dependencies {
      * initial repository
      **/
     // butter knife
-    compile('com.jakewharton:butterknife:8.5.1') {
-        exclude group: 'com.google.guava'
-    }
+    compile('com.jakewharton:butterknife:8.5.1')
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
     // picasso
-    compile('com.squareup.picasso:picasso:2.5.2') {
-        exclude group: 'com.google.guava'
-    }
+    compile('com.squareup.picasso:picasso:2.5.2')
     //Timber Log
-    compile('com.jakewharton.timber:timber:4.5.1') {
-        exclude group: 'com.google.guava'
-    }
+    compile('com.jakewharton.timber:timber:4.5.1')
     // dagger
-    compile('com.google.dagger:dagger:2.10') {
-        exclude group: 'com.google.guava'
-    }
+    compile('com.google.dagger:dagger:2.10')
     annotationProcessor 'com.google.dagger:dagger-compiler:2.10'
     //Gson
-    compile('com.google.code.gson:gson:2.8.0') {
-        exclude group: 'com.google.guava'
-    }
+    compile('com.google.code.gson:gson:2.8.0')
     //Retrofit
-    compile('com.squareup.retrofit2:retrofit:2.2.0') {
-        exclude group: 'com.google.guava'
-    }
-    compile('com.squareup.retrofit:converter-gson:2.0.0-beta2') {
-        exclude group: 'com.google.guava'
-    }
-    //Guava
-    compile 'com.google.guava:guava:20.0'
+    compile 'com.squareup.retrofit2:retrofit:2.3.0'
+    compile 'com.squareup.retrofit2:converter-gson:2.3.0'
     // Common Utils
     compile 'commons-io:commons-io:2.5'
     // Promise
@@ -98,4 +82,12 @@ dependencies {
     }
     // Utility classes
     compile 'org.apache.commons:commons-lang3:3.5'
+    // firebase
+    compile 'com.google.firebase:firebase-core:11.0.2'
+    // firebase google auth
+    compile 'com.google.firebase:firebase-auth:11.0.2'
+    compile 'com.google.android.gms:play-services-auth:11.0.2'
+    compile 'com.google.android.gms:play-services-location:11.0.2'
 }
+
+apply plugin: 'com.google.gms.google-services'

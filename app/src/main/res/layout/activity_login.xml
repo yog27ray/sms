@@ -1,35 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context="com.yog27ray.contactsync.activity.LoginActivity">
+<layout>
 
-    <android.support.v7.widget.AppCompatEditText
-        android:id="@+id/number"
+    <data></data>
+
+    <android.support.v7.widget.LinearLayoutCompat
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="7891378913"
-        android:hint="@string/number"/>
+        android:layout_height="match_parent"
+        android:padding="@dimen/dp50"
+        android:orientation="vertical"
+        android:background="@color/colorPrimary"
+        tools:context="com.msgque.pulse.activity.LoginActivity">
 
-    <Button
-        android:id="@+id/generate_otp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/generate_otp"/>
+        <android.support.v7.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center">
 
-    <android.support.v7.widget.AppCompatEditText
-        android:id="@+id/otp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/enter_otp"/>
 
-    <Button
-        android:id="@+id/login"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/login"/>
+            <android.support.v7.widget.AppCompatImageView
+                android:layout_width="@dimen/dp100"
+                android:layout_height="@dimen/dp100"
+                android:layout_gravity="center"
+                android:adjustViewBounds="true"
+                android:background="@android:color/black"/>
+        </android.support.v7.widget.LinearLayoutCompat>
 
-</LinearLayout>
+        <android.support.v7.widget.LinearLayoutCompat
+            android:id="@+id/google_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="@dimen/dp20"
+            android:background="@drawable/circle_white"
+            android:foreground="?android:attr/selectableItemBackground">
+
+            <android.support.v7.widget.AppCompatImageView
+                android:layout_width="@dimen/dp30"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:adjustViewBounds="true"
+                android:src="@drawable/google"/>
+
+            <android.support.v7.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_margin="@dimen/dp10"
+                android:text="@string/sign_in"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/large_text"/>
+        </android.support.v7.widget.LinearLayoutCompat>
+    </android.support.v7.widget.LinearLayoutCompat>
+</layout>

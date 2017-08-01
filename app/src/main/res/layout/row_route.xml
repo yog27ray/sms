@@ -5,7 +5,7 @@
     <data>
         <variable
             name="item"
-            type="com.yog27ray.contactsync.model.RouteModel"/>
+            type="com.msgque.pulse.model.RouteModel"/>
     </data>
     <android.support.v7.widget.LinearLayoutCompat
         android:layout_height="match_parent"

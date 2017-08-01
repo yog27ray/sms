@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="activity"
+            type="com.msgque.pulse.activity.domain.ConfirmDomainPurchaseActivity"/>
+    </data>
+
+    <android.support.v7.widget.LinearLayoutCompat
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?android:attr/actionBarSize"
+            android:background="@color/colorPrimary"
+            android:theme="@style/MenuWhiteTextTheme"
+            app:layout_collapseMode="pin"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+            app:subtitleTextAppearance="@style/Toolbar.SubTitleText"
+            app:subtitleTextColor="@android:color/white"
+            app:titleMarginStart="0dp"
+            app:titleTextAppearance="@style/Toolbar.TitleText"
+            app:titleTextColor="@android:color/white"/>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/colorPrimaryDark">
+
+            <android.support.v7.widget.LinearLayoutCompat
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="horizontal">
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="@string/dollar"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/normal_text"/>
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/test_amount"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/xxxx_large_text"/>
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/month"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/normal_text"/>
+            </android.support.v7.widget.LinearLayoutCompat>
+        </FrameLayout>
+
+        <android.support.v7.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dp50"
+            android:layout_marginTop="@dimen/dp20"
+            android:background="@drawable/button_primary"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:onClick="@{() -> activity.onClickConfirm()}"
+            android:paddingEnd="@dimen/dp20"
+            android:paddingLeft="@dimen/dp20"
+            android:paddingRight="@dimen/dp20"
+            android:paddingStart="@dimen/dp20"
+            android:text="@string/next"
+            android:textAllCaps="true"
+            android:textColor="@android:color/white"/>
+    </android.support.v7.widget.LinearLayoutCompat>
+</layout>

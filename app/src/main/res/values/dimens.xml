@@ -1,4 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <dimen name="dp1">1dp</dimen>
+    <dimen name="dp2">2dp</dimen>
+    <dimen name="dp3">3dp</dimen>
+    <dimen name="dp4">4dp</dimen>
+    <dimen name="dp5">5dp</dimen>
+    <dimen name="dp7">7dp</dimen>
     <dimen name="dp10">10dp</dimen>
+    <dimen name="dp15">15dp</dimen>
+    <dimen name="dp20">20dp</dimen>
+    <dimen name="dp25">25dp</dimen>
+    <dimen name="dp30">30dp</dimen>
+    <dimen name="dp50">50dp</dimen>
+    <dimen name="dp60">60dp</dimen>
+    <dimen name="dp70">70dp</dimen>
+    <dimen name="dp80">80dp</dimen>
+    <dimen name="dp100">100dp</dimen>
+    <dimen name="dp150">150dp</dimen>
+    <dimen name="very_small_text">10sp</dimen>
+    <dimen name="small_text">12sp</dimen>
+    <dimen name="small_normal_text">13sp</dimen>
+    <dimen name="normal_text">14sp</dimen>
+    <dimen name="normal_large_text">15sp</dimen>
+    <dimen name="large_text">17sp</dimen>
+    <dimen name="x_large_text">19sp</dimen>
+    <dimen name="xx_large_text">24sp</dimen>
+    <dimen name="xxx_large_text">28sp</dimen>
+    <dimen name="xxxx_large_text">35sp</dimen>
 </resources>
