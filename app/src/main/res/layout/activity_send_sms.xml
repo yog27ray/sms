@@ -10,11 +10,11 @@
 
         <variable
             name="routeAdapter"
-            type="com.yog27ray.contactsync.adapter.RouteSpinnerAdapter"/>
+            type="com.msgque.pulse.adapter.RouteSpinnerAdapter"/>
 
         <variable
             name="senderIdAdapter"
-            type="com.yog27ray.contactsync.adapter.SenderIdSpinnerAdapter"/>
+            type="com.msgque.pulse.adapter.SenderIdSpinnerAdapter"/>
 
         <variable
             name="sendSmsListener"
@@ -22,7 +22,7 @@
 
         <variable
             name="activity"
-            type="com.yog27ray.contactsync.activity.SendSmsActivity"/>
+            type="com.msgque.pulse.activity.SendSmsActivity"/>
     </data>
 
     <android.support.design.widget.CoordinatorLayout

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest
     xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.yog27ray.contactsync">
+    package="com.msgque.pulse">
 
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.READ_CONTACTS"/>
@@ -19,8 +19,17 @@
             android:value="d9f287bd0036e70c407040441fca63059bc799e2"/>
 
         <activity android:name=".activity.GroupListActivity"/>
+        <activity
+            android:name=".activity.domain.SearchDomainActivity"
+            android:windowSoftInputMode="stateVisible|adjustResize"/>
         <activity android:name=".activity.SendSmsActivity"/>
-        <activity android:name=".activity.LoginActivity">
+        <activity android:name=".activity.domain.AddDomainActivity"/>
+        <activity android:name=".activity.domain.ConfirmDomainPurchaseActivity"/>
+        <activity android:name=".activity.LoginActivity"/>
+        <activity
+            android:name=".activity.EditProfileActivity"
+            android:windowSoftInputMode="stateVisible|adjustResize"/>
+        <activity android:name=".activity.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
