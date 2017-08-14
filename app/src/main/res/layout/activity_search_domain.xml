@@ -5,7 +5,7 @@
     <data>
         <variable
             name="activity"
-            type="com.msgque.pulse.activity.domain.SearchDomainActivity"/>
+            type="com.msgque.play.activity.domain.SearchDomainActivity"/>
     </data>
 
     <android.support.v7.widget.LinearLayoutCompat

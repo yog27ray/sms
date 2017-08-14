@@ -7,16 +7,19 @@
         <import type="android.graphics.Typeface"/>
 
         <variable
+            name="changeListener"
+            type="android.widget.CompoundButton.OnCheckedChangeListener"/>
+        <variable
             name="clickListener"
             type="android.view.View.OnClickListener"/>
 
         <variable
             name="holder"
-            type="com.msgque.pulse.holder.DomainHolder"/>
+            type="com.msgque.play.holder.DomainHolder"/>
 
         <variable
             name="item"
-            type="com.msgque.pulse.model.DomainModel"/>
+            type="com.msgque.play.model.DomainModel"/>
     </data>
 
     <android.support.v7.widget.LinearLayoutCompat
@@ -31,6 +34,8 @@
             android:id="@+id/selected"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:tag="@{holder}"
+            android:onCheckedChanged="@{changeListener}"
             android:checked="@={item.selected}"/>
 
         <android.support.v7.widget.AppCompatTextView

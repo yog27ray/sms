@@ -1,6 +1,6 @@
 <resources>
-    <string name="app_name">Contact Sync</string>
-    <string name="URL_API">http://192.168.43.216:3000</string>
+    <string name="app_name">MSGQ</string>
+    <string name="URL_API">https://play.msgque.com</string>
     <string name="URL_DLR_MSGQUE">http://dlr.msgque.com</string>
     <string name="CLIENT_APP_ID">xclientid</string>
     <string name="CLIENT_SECRET">xclientsecret</string>
@@ -14,6 +14,7 @@
     <string name="message">Message</string>
     <string name="send">Send</string>
     <string name="campaign">campaign</string>
+    <string name="campaign_name">Campaign Name</string>
     <string name="create_new_account">Create new account</string>
     <string name="sign_up">Sign Up</string>
     <string name="username">Username</string>
@@ -43,4 +44,9 @@
     <string name="pricing">PRICING</string>
     <string name="month">month</string>
     <string name="slash">/</string>
+    <string name="skip">Skip</string>
+    <string name="sender_id">Sender ID</string>
+    <string name="zero_by_six">0/6</string>
+    <string name="compose">Compose</string>
+    <string name="logout">Logout</string>
 </resources>

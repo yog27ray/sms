@@ -6,7 +6,7 @@
     <data>
         <variable
             name="activity"
-            type="com.msgque.pulse.activity.GroupListActivity"/>
+            type="com.msgque.play.activity.GroupListActivity"/>
     </data>
 
     <android.support.design.widget.CoordinatorLayout

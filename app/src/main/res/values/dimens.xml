@@ -17,6 +17,7 @@
     <dimen name="dp80">80dp</dimen>
     <dimen name="dp100">100dp</dimen>
     <dimen name="dp150">150dp</dimen>
+    <dimen name="dp200">200dp</dimen>
     <dimen name="very_small_text">10sp</dimen>
     <dimen name="small_text">12sp</dimen>
     <dimen name="small_normal_text">13sp</dimen>
@@ -27,4 +28,5 @@
     <dimen name="xx_large_text">24sp</dimen>
     <dimen name="xxx_large_text">28sp</dimen>
     <dimen name="xxxx_large_text">35sp</dimen>
+    <dimen name="nav_slide_width">250dp</dimen>
 </resources>
