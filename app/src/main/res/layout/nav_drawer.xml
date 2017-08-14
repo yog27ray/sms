@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View"/>
+
+        <variable
+            name="loginListener"
+            type="android.view.View.OnClickListener"/>
+
+        <variable
+            name="logoutListener"
+            type="android.view.View.OnClickListener"/>
+
+        <variable
+            name="user"
+            type="com.msgque.play.model.UserModel"/>
+    </data>
+
+    <android.support.v7.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:orientation="vertical"
+            android:padding="@dimen/dp20">
+
+            <android.support.v7.widget.AppCompatImageView
+                android:layout_width="@dimen/dp50"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp50"
+                android:adjustViewBounds="true"
+                app:srcCompat="@drawable/logo"/>
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp5"
+                android:ellipsize="marquee"
+                android:maxLines="1"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/normal_text"/>
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp5"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="@dimen/small_normal_text"/>
+        </android.support.v7.widget.LinearLayoutCompat>
+
+        <android.support.v4.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <android.support.v7.widget.LinearLayoutCompat
+                android:id="@+id/menu_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+            </android.support.v7.widget.LinearLayoutCompat>
+        </android.support.v4.widget.NestedScrollView>
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{loginListener}"
+            android:padding="@dimen/dp20"
+            android:text="@string/login"
+            android:visibility="@{user.id == null ? View.VISIBLE : View.GONE, default=visible}"/>
+
+        <android.support.v7.widget.LinearLayoutCompat
+            android:id="@+id/logout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:visibility="@{user.id != null ? View.VISIBLE : View.GONE, default=gone}">
+
+            <android.support.v7.widget.AppCompatImageView
+                android:layout_width="@dimen/dp20"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dp15"
+                android:adjustViewBounds="true"
+                android:src="@drawable/logout"/>
+
+            <android.support.v7.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center|start"
+                android:onClick="@{logoutListener}"
+                android:text="@string/logout"/>
+        </android.support.v7.widget.LinearLayoutCompat>
+    </android.support.v7.widget.LinearLayoutCompat>
+</layout>

@@ -1,35 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest
     xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.msgque.pulse">
+    package="com.msgque.play">
 
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.READ_CONTACTS"/>
 
     <application
-        android:name=".App"
+        android:name="com.msgque.play.App"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/logo"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <meta-data
             android:name="io.fabric.ApiKey"
             android:value="d9f287bd0036e70c407040441fca63059bc799e2"/>
 
-        <activity android:name=".activity.GroupListActivity"/>
+        <activity android:name="com.msgque.play.activity.GroupListActivity"/>
         <activity
-            android:name=".activity.domain.SearchDomainActivity"
+            android:name="com.msgque.play.activity.domain.SearchDomainActivity"
             android:windowSoftInputMode="stateVisible|adjustResize"/>
-        <activity android:name=".activity.SendSmsActivity"/>
-        <activity android:name=".activity.domain.AddDomainActivity"/>
-        <activity android:name=".activity.domain.ConfirmDomainPurchaseActivity"/>
-        <activity android:name=".activity.LoginActivity"/>
+        <activity android:name="com.msgque.play.activity.SendSmsActivity"/>
+        <activity android:name="com.msgque.play.activity.CampaignListActivity"/>
+        <activity android:name="com.msgque.play.activity.WebActivity"/>
+        <activity android:name="com.msgque.play.activity.domain.AddDomainActivity"/>
+        <activity android:name="com.msgque.play.activity.domain.ConfirmDomainPurchaseActivity"/>
+        <activity android:name="com.msgque.play.activity.LoginActivity"/>
         <activity
-            android:name=".activity.EditProfileActivity"
+            android:name="com.msgque.play.activity.EditProfileActivity"
             android:windowSoftInputMode="stateVisible|adjustResize"/>
-        <activity android:name=".activity.SplashActivity">
+        <activity android:name="com.msgque.play.activity.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 

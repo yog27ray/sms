@@ -10,11 +10,11 @@
 
         <variable
             name="holder"
-            type="com.msgque.pulse.holder.GroupHolder"/>
+            type="com.msgque.play.holder.GroupHolder"/>
 
         <variable
             name="item"
-            type="com.msgque.pulse.model.GroupModel"/>
+            type="com.msgque.play.model.GroupModel"/>
     </data>
 
     <android.support.v7.widget.LinearLayoutCompat
