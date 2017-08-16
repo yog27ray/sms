@@ -16,7 +16,8 @@
         android:theme="@style/AppTheme">
         <meta-data
             android:name="io.fabric.ApiKey"
-            android:value="d9f287bd0036e70c407040441fca63059bc799e2"/>
+            android:value="c313415b0370a30b20efa3ea50375a822403ec79"
+            />
 
         <activity android:name="com.msgque.play.activity.GroupListActivity"/>
         <activity
