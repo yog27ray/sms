@@ -21,6 +21,7 @@ import com.msgque.play.dagger.component.StorageComponent;
 import com.msgque.play.dagger.module.AppModule;
 import com.msgque.play.model.UserModel;
 
+import io.fabric.sdk.android.Fabric;
 import timber.log.Timber;
 
 public class App extends Application {
@@ -56,12 +57,12 @@ public class App extends Application {
 		setupDagger();
 
 		//Initialize Timber
-//		if (BuildConfig.DEBUG) {
+		if (BuildConfig.DEBUG) {
 			Timber.plant(new Timber.DebugTree());
-//		} else {
-//			Fabric.with(this, new Crashlytics());
-//			Timber.plant(new CrashlyticsTree());
-//		}
+		} else {
+			Fabric.with(this, new Crashlytics());
+			Timber.plant(new CrashlyticsTree());
+		}
 
 		// TODO: Move this to where you establish a user session
 		logUser();
