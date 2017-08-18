@@ -69,10 +69,12 @@ public class ConfirmDomainPurchaseActivity extends AppCompatActivity {
   }
 
   public void onClickConfirm() {
+    uiHelper.startProgressBar(this, R.string.creating_with_dots);
     conn.createDomains(domains)
         .then(new DoneCallback<Boolean>() {
           @Override
           public void onDone(Boolean result) {
+            uiHelper.stopProgressBar();
             Intent i = CampaignListActivity.createIntent(ConfirmDomainPurchaseActivity.this);
             i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(i);

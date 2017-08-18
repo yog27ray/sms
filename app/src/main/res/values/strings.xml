@@ -49,4 +49,6 @@
     <string name="zero_by_six">0/6</string>
     <string name="compose">Compose</string>
     <string name="logout">Logout</string>
+    <string name="domain_name">Domain name</string>
+    <string name="creating_with_dots">Creating...</string>
 </resources>

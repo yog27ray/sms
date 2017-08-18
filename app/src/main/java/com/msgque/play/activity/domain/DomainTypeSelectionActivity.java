@@ -5,34 +5,39 @@ import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 
 import com.msgque.play.R;
 import com.msgque.play.activity.CampaignListActivity;
-import com.msgque.play.databinding.ActivityAddDomainBinding;
+import com.msgque.play.databinding.ActivityDomainTypeSelectionBinding;
 
-public class AddDomainActivity extends AppCompatActivity{
+public class DomainTypeSelectionActivity extends AppCompatActivity{
 
-  private ActivityAddDomainBinding binding;
+  private ActivityDomainTypeSelectionBinding binding;
 
   public static Intent createIntent(Context context) {
-    return new Intent(context, AddDomainActivity.class);
+    return new Intent(context, DomainTypeSelectionActivity.class);
   }
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    binding = DataBindingUtil.setContentView(this, R.layout.activity_add_domain);
+    binding = DataBindingUtil.setContentView(this, R.layout.activity_domain_type_selection);
     binding.setActivity(this);
   }
 
-  public void onClickRegisterNewDomain() {
+  public void onClickRegisterNewDomain(View view) {
     startActivity(SearchDomainActivity.createIntent(this));
     finish();
   }
 
-  public void onClickSkip() {
+  public void onClickSkip(View view) {
     startActivity(CampaignListActivity.createIntent(this));
     finish();
   }
 
+  public void onClickExsisting(View view) {
+    startActivity(ExistingDomainActivity.createIntent(this));
+    finish();
+  }
 }
