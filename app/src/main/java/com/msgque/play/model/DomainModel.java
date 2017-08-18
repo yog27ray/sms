@@ -63,4 +63,14 @@ public class DomainModel extends BaseObservable {
     this.selected = selected;
     notifyPropertyChanged(BR.selected);
   }
+
+  @Bindable
+  public boolean isExisting() {
+    return existing;
+  }
+
+  public void setExisting(boolean existing) {
+    this.existing = existing;
+    notifyPropertyChanged(BR.existing);
+  }
 }

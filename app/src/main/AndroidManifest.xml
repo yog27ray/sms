@@ -26,7 +26,8 @@
         <activity android:name="com.msgque.play.activity.SendSmsActivity"/>
         <activity android:name="com.msgque.play.activity.CampaignListActivity"/>
         <activity android:name="com.msgque.play.activity.WebActivity"/>
-        <activity android:name="com.msgque.play.activity.domain.AddDomainActivity"/>
+        <activity android:name="com.msgque.play.activity.domain.DomainTypeSelectionActivity"/>
+        <activity android:name="com.msgque.play.activity.domain.ExistingDomainActivity"/>
         <activity android:name="com.msgque.play.activity.domain.ConfirmDomainPurchaseActivity"/>
         <activity android:name="com.msgque.play.activity.LoginActivity"/>
         <activity

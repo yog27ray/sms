@@ -8,6 +8,7 @@ import com.msgque.play.activity.LoginActivity;
 import com.msgque.play.activity.SendSmsActivity;
 import com.msgque.play.activity.WebActivity;
 import com.msgque.play.activity.domain.ConfirmDomainPurchaseActivity;
+import com.msgque.play.activity.domain.ExistingDomainActivity;
 import com.msgque.play.activity.domain.SearchDomainActivity;
 import com.msgque.play.connectivity.interceptor.AuthorizationInterceptor;
 import com.msgque.play.dagger.module.InternetModule;
@@ -41,4 +42,6 @@ public interface InternetComponent {
   void inject(CampaignListActivity activity);
 
   void inject(WebActivity activity);
+
+  void inject(ExistingDomainActivity activity);
 }

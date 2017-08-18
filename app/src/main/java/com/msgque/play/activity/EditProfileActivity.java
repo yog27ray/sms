@@ -10,7 +10,7 @@ import android.view.View;
 
 import com.msgque.play.App;
 import com.msgque.play.R;
-import com.msgque.play.activity.domain.AddDomainActivity;
+import com.msgque.play.activity.domain.DomainTypeSelectionActivity;
 import com.msgque.play.common.SPHelper;
 import com.msgque.play.connectivity.ServerConnection;
 import com.msgque.play.databinding.ActivityEditProfileBinding;
@@ -54,7 +54,7 @@ public class EditProfileActivity extends AppCompatActivity {
               spHelper.setProfileCompleted(true);
               startActivity(domains.size() > 0
                   ? CampaignListActivity.createIntent(EditProfileActivity.this)
-                  : AddDomainActivity.createIntent(EditProfileActivity.this));
+                  : DomainTypeSelectionActivity.createIntent(EditProfileActivity.this));
               finish();
             }
           })
