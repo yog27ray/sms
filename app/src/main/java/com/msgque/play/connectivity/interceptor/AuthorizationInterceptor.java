@@ -3,6 +3,7 @@ package com.msgque.play.connectivity.interceptor;
 import com.msgque.play.App;
 import com.msgque.play.BuildConfig;
 import com.msgque.play.common.SPHelper;
+import com.msgque.play.common.constant.EndPoints;
 import com.msgque.play.common.constant.ServerConstant;
 import com.msgque.play.connectivity.ServerConnection;
 import com.msgque.play.model.AccessToken;
@@ -35,7 +36,11 @@ public class AuthorizationInterceptor implements Interceptor {
     if (token != null) {
       basic = String.format("Bearer %s", token.access_token);
       builder = builder.header(ServerConstant.AUTHORIZATION, basic);
-      if (spHelper.isAdmin()) builder = builder.header(ServerConstant.ADMIN, "true");
+      builder = builder.method(request.method(), request.body());
+      request = builder.build();
+    } else if (!EndPoints.TOKEN.isEmpty()){
+      basic = String.format("Token %s", EndPoints.TOKEN);
+      builder = builder.header(ServerConstant.AUTHORIZATION, basic);
       builder = builder.method(request.method(), request.body());
       request = builder.build();
     }

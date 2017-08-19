@@ -4,6 +4,7 @@
     <string name="URL_DLR_MSGQUE">http://dlr.msgque.com</string>
     <string name="CLIENT_APP_ID">xclientid</string>
     <string name="CLIENT_SECRET">xclientsecret</string>
+    <string name="token">9844717202abcd</string>
     <string name="number">Number</string>
     <string name="enter_otp">Enter OTP</string>
     <string name="submit">Submit</string>

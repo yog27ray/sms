@@ -41,6 +41,9 @@ interface ApiService {
   @POST("/api/users/signup")
   Call<ResponseBody> signUpUser(@Body UserModel user);
 
+  @POST("/api/users/endUser")
+  Call<UserModel> createEndCustomer(@Body UserModel body);
+
   @POST("/api/users/googleLogin")
   Call<AccessToken> googleLogin(@Body UserModel user);
 

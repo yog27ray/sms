@@ -53,7 +53,7 @@ public class ServerConnection {
   public Promise<Boolean, Exception, Object> signUpUserGoogle(final UserModel user) {
     final Deferred<Boolean, Exception, Object> deferred = new DeferredObject<>();
     user.roleId = 4;
-    signUpUser(user)
+    createEndUser(user)
         .then(new DoneCallback<Boolean>() {
           @Override
           public void onDone(Boolean result) {
@@ -103,6 +103,35 @@ public class ServerConnection {
 
       @Override
       public void onFailure(Call<ResponseBody> call, Throwable t) {
+        Timber.w(t);
+        deferred.reject(null);
+      }
+    });
+    return deferred.promise();
+  }
+
+  public Promise<Boolean, Exception, Object> createEndUser(UserModel user) {
+    final Deferred<Boolean, Exception, Object> deferred = new DeferredObject<>();
+    ApiService service = apiConnector.createService(ApiService.class, this);
+    Call<UserModel> request = service.createEndCustomer(user);
+    request.enqueue(new Callback<UserModel>() {
+      @Override
+      public void onResponse(Call<UserModel> call, Response<UserModel> response) {
+        if (response.isSuccessful() || response.code() == 409) {
+          deferred.resolve(true);
+          return;
+        }
+        try {
+          Timber.d(response.code() + ":" + response.message());
+          Timber.d(response.errorBody().string());
+        } catch (IOException e) {
+          e.printStackTrace();
+        }
+        deferred.reject(new Exception());
+      }
+
+      @Override
+      public void onFailure(Call<UserModel> call, Throwable t) {
         Timber.w(t);
         deferred.reject(null);
       }
