@@ -38,7 +38,7 @@
     <string name="search">Search</string>
     <string name="dollar">$</string>
     <string name="total_amount">Total Amount</string>
-    <string name="test_amount">$0</string>
+    <string name="test_amount">₹0</string>
     <string name="next">Next</string>
     <string name="use_existing_domain">Use Exsisting Domain</string>
     <string name="pricing">PRICING</string>

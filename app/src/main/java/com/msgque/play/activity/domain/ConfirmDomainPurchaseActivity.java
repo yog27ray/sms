@@ -25,6 +25,8 @@ import org.jdeferred.FailCallback;
 
 import java.util.List;
 import java.util.Locale;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javax.inject.Inject;
 
@@ -62,21 +64,38 @@ public class ConfirmDomainPurchaseActivity extends AppCompatActivity {
     float totalAmount = listHelper.reduce(domains, 0, new ListListener.Reduce<DomainModel>() {
       @Override
       public float reduce(DomainModel item) {
-        return Float.parseFloat(item.getPrice());
+        Pattern regex = Pattern.compile("(\\d+(?:\\.\\d+)?)");
+        Matcher matcher = regex.matcher(item.getPrice());
+        if (matcher.find()) {
+          return Float.parseFloat(matcher.group(0));
+        }
+        return 0;
       }
     });
+    String currency = "₹";
+    if (domains.size() > 0) {
+      Pattern regex = Pattern.compile("[^0-9.]");
+      Matcher matcher = regex.matcher(domains.get(0).getPrice());
+      if (matcher.find()) {
+        currency = matcher.group(0);
+      }
+    }
+    binding.setCurrency(currency);
     binding.price.setText(String.format(Locale.ENGLISH, "%.2f/", totalAmount));
   }
 
   public void onClickConfirm() {
     uiHelper.startProgressBar(this, R.string.creating_with_dots);
     conn.createDomains(domains)
-        .then(new DoneCallback<Boolean>() {
+        .then(new DoneCallback<List<DomainModel>>() {
           @Override
-          public void onDone(Boolean result) {
+          public void onDone(List<DomainModel> result) {
             uiHelper.stopProgressBar();
-            Intent i = CampaignListActivity.createIntent(ConfirmDomainPurchaseActivity.this);
-            i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+            Intent i = result.size() == 0
+                ? CampaignListActivity.createIntent(ConfirmDomainPurchaseActivity.this)
+                : CampaignListActivity.createIntent(ConfirmDomainPurchaseActivity.this,
+                result.get(0).getName());
+            i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(i);
             finish();
           }

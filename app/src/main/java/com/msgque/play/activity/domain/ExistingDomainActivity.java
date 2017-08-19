@@ -20,6 +20,7 @@ import org.jdeferred.DoneCallback;
 import org.jdeferred.FailCallback;
 
 import java.util.Arrays;
+import java.util.List;
 
 import javax.inject.Inject;
 
@@ -49,12 +50,12 @@ public class ExistingDomainActivity extends AppCompatActivity {
   public void onClickConfirm(View view) {
     uiHelper.startProgressBar(this, R.string.creating_with_dots);
     conn.createDomains(Arrays.asList(binding.getDomain()))
-        .then(new DoneCallback<Boolean>() {
+        .then(new DoneCallback<List<DomainModel>>() {
           @Override
-          public void onDone(Boolean result) {
+          public void onDone(List<DomainModel> result) {
             uiHelper.stopProgressBar();
             Intent i = CampaignListActivity.createIntent(ExistingDomainActivity.this);
-            i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+            i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(i);
             finish();
           }

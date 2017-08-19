@@ -9,6 +9,7 @@ import android.view.View;
 import com.msgque.play.App;
 import com.msgque.play.R;
 import com.msgque.play.adapter.CampaignListAdapter;
+import com.msgque.play.common.constant.IntentConstant;
 import com.msgque.play.common.constant.RandomConstant;
 import com.msgque.play.connectivity.ServerConnection;
 import com.msgque.play.dagger.component.InternetComponent;
@@ -40,6 +41,12 @@ public class CampaignListActivity extends NavBaseActivity {
   private ActivityCampaignListBinding binding;
   private CampaignListAdapter adapter;
 
+  public static Intent createIntent(Context context, String url) {
+    Intent i = new Intent(context, CampaignListActivity.class);
+    i.putExtra(IntentConstant.OPEN_URL, url);
+    return i;
+  }
+
   public static Intent createIntent(Context context) {
     return new Intent(context, CampaignListActivity.class);
   }
@@ -55,6 +62,10 @@ public class CampaignListActivity extends NavBaseActivity {
     binding = setUpNewLayout(R.layout.activity_campaign_list);
     binding.setActivity(this);
     markRowSelected(RandomConstant.NAV_CAMPAIGN);
+    if (getIntent().hasExtra(IntentConstant.OPEN_URL)) {
+      startActivity(WebActivity.createIntent(this, "",
+          getIntent().getStringExtra(IntentConstant.OPEN_URL)));
+    }
 
     if (getSupportActionBar() != null) {
       getSupportActionBar().setHomeAsUpIndicator(R.drawable.logo);

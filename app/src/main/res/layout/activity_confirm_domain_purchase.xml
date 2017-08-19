@@ -4,6 +4,10 @@
     <data>
 
         <variable
+            name="currency"
+            type="String"/>
+
+        <variable
             name="activity"
             type="com.msgque.play.activity.domain.ConfirmDomainPurchaseActivity"/>
     </data>
@@ -44,7 +48,7 @@
                 <android.support.v7.widget.AppCompatTextView
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:text="@string/dollar"
+                    android:text="@{currency,default=@string/dollar}"
                     android:textColor="@android:color/white"
                     android:textSize="@dimen/normal_text"/>
 

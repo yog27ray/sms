@@ -420,7 +420,7 @@ public class ServerConnection {
         if (response.isSuccessful()) {
           List<DomainModel> result = new ArrayList<>();
           HashMap<String, DomainModel> data = response.body();
-          for (String name: data.keySet()) {
+          for (String name : data.keySet()) {
             DomainModel domain = data.get(name);
             domain.setName(name);
             result.add(domain);
@@ -462,17 +462,29 @@ public class ServerConnection {
     return deferred.promise();
   }
 
-  public Promise<Boolean, Exception, Object> createDomains(List<DomainModel> domains) {
-    final Deferred<Boolean, Exception, Object> deferred = new DeferredObject<>();
+  public Promise<List<DomainModel>, Exception, Object> createDomains(final List<DomainModel> domains) {
+    final Deferred<List<DomainModel>, Exception, Object> deferred = new DeferredObject<>();
     ApiService service = apiConnector.createService(ApiService.class, this);
     Call<ResponseBody> request;
+    Timber.e(jsonConverter.toJson(domains.get(0)));
     if (domains.size() == 1) request = service.createDomains(domains.get(0));
     else request = service.createDomains(domains);
     request.enqueue(new Callback<ResponseBody>() {
       @Override
       public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
         if (response.isSuccessful()) {
-          deferred.resolve(true);
+          List<DomainModel> result = new ArrayList<>();
+          try {
+            if (domains.size() == 1) {
+              result.add(jsonConverter.fromJson(response.body().string(), DomainModel.class));
+            } else {
+              result = jsonConverter.fromJson(response.body().string(),
+                  new TypeToken<List<DomainModel>>(){}.getType());
+            }
+          } catch (IOException e) {
+            e.printStackTrace();
+          }
+          deferred.resolve(result);
           return;
         }
         deferred.reject(new Exception());
@@ -498,7 +510,8 @@ public class ServerConnection {
           try {
             JSONObject object = new JSONObject(response.body().string());
             result = jsonConverter.fromJson(object.getString("items"),
-                new TypeToken<List<CampaignModel>>(){}.getType());
+                new TypeToken<List<CampaignModel>>() {
+                }.getType());
           } catch (Exception e) {
             e.printStackTrace();
           }
