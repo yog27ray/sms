@@ -3,6 +3,7 @@
         xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="activity"
             type="com.msgque.play.activity.domain.SearchDomainActivity"/>
@@ -48,8 +49,10 @@
             <android.support.v7.widget.AppCompatImageView
                 android:layout_width="50dp"
                 android:layout_height="match_parent"
+                android:background="@color/colorAccent"
                 android:onClick="@{() -> activity.getDomains()}"
-                android:background="@color/colorAccent"/>
+                android:padding="@dimen/dp5"
+                app:srcCompat="@drawable/search"/>
         </android.support.v7.widget.LinearLayoutCompat>
 
         <android.support.v7.widget.RecyclerView
@@ -83,20 +86,6 @@
                 android:textColor="@color/seaGreen"
                 android:textSize="@dimen/xxx_large_text"/>
 
-            <android.support.v7.widget.AppCompatTextView
-                android:id="@+id/next"
-                android:onClick="@{() -> activity.onClickNext()}"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="@dimen/dp30"
-                android:background="@drawable/button_primary"
-                android:paddingEnd="@dimen/dp15"
-                android:paddingLeft="@dimen/dp15"
-                android:paddingRight="@dimen/dp15"
-                android:paddingStart="@dimen/dp15"
-                android:text="@string/next"
-                android:textColor="@android:color/white"/>
         </android.support.v7.widget.LinearLayoutCompat>
     </android.support.v7.widget.LinearLayoutCompat>
 </layout>

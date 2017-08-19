@@ -33,6 +33,9 @@ public class WebActivity extends NavBaseActivity {
   protected void openUrl(String url) {
     if (url == null || url.isEmpty()) return;
     UserModel user = spHelper.getCurrentUser();
+    if (!url.startsWith("http")) {
+      url = "http://" + url;
+    }
     if (url.indexOf('?') == -1) url += "?";
     if (user != null) url += String.format(Locale.ENGLISH, "&email=%s", user.email);
     binding.webView.loadUrl(url);
