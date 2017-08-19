@@ -13,7 +13,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 
-import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.msgque.play.App;
 import com.msgque.play.R;
@@ -36,8 +35,6 @@ import org.jdeferred.DoneCallback;
 import java.util.List;
 
 import javax.inject.Inject;
-
-import timber.log.Timber;
 
 public class SendSmsActivity extends AppCompatActivity {
   @Inject
@@ -186,8 +183,7 @@ public class SendSmsActivity extends AppCompatActivity {
         }
       });
     }
-    Timber.e(new Gson().toJson(sms));
-//    conn.sendSms(sms);
+    conn.sendSms(sms);
   }
 
   @Override
